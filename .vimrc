@@ -35,10 +35,31 @@ set showmatch           " highlight matching [{()}]
 " Load filetype-specific indent files
 filetype indent on
 
-" Don't copy numbers when selecting
-:se mouse+=a
-
 " Remaps
 "
 " space open/closes folds
 nnoremap <space> za
+
+" Vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+
+" Add plugins to &runtimepath
+call plug#end()
+
+" NERDTree
+"
+" Open automatically if no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open automatically ion opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Open with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
