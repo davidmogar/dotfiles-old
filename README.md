@@ -1,2 +1,2 @@
 # dotfiles
-Repository to store my dotfiles.
+Home for my non-sensitive dotfiles.
