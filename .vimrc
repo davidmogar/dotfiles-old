@@ -51,6 +51,12 @@ Plug 'tpope/vim-fugitive'
 " Add plugins to &runtimepath
 call plug#end()
 
+" CtrlP
+"
+" Open with Ctrl+p
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 " NERDTree
 "
 " Open automatically if no files specified
