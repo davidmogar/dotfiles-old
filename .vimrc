@@ -35,6 +35,9 @@ set showmatch           " highlight matching [{()}]
 " Load filetype-specific indent files
 filetype indent on
 
+" Don't copy numbers when selecting
+:se mouse+=a
+
 " Remaps
 "
 " space open/closes folds
