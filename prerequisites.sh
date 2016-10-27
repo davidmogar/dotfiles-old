@@ -15,7 +15,7 @@ if [ -d "$PLAYGROUND" ]; then
   rm -rf "${PLAYGROUND}"
 fi
 
-mkdir -p ~/"${PLAYGROUND}"/git
+mkdir -p "${PLAYGROUND}"/git
 git clone https://github.com/davidmogar/dotfiles.git "${PLAYGROUND}"/dotfiles
 git clone https://github.com/davidmogar/scripts.git "${PLAYGROUND}"/scripts
 
