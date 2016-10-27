@@ -39,13 +39,18 @@ echo "[2] Done!"
 
 echo -e "\n[3] Installing packages (Running as su)..."
 
-if [[ ! -z $CMD_YUM ]]; then
-  su - -c "yum -y install vim"
-  su - -c "yum -y install zsh"
-elif [[ ! -z $CMD_APT_GET ]]; then
-  sudo apt-get -y install vim
-  sudo apt-get -y install zsh
-fi
+while getopts ":i" opt; do
+  case $opt in
+    i)
+      if [[ ! -z $CMD_YUM ]]; then
+        su - -c "yum -y install vim"
+        su - -c "yum -y install zsh"
+      elif [[ ! -z $CMD_APT_GET ]]; then
+        sudo apt-get -y install vim
+        sudo apt-get -y install zsh
+      fi
+  esac
+done
 
 echo "[3] Done!"
 
