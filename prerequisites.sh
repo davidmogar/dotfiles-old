@@ -43,9 +43,13 @@ while getopts ":i" opt; do
   case $opt in
     i)
       if [[ ! -z $CMD_YUM ]]; then
+        su - -c "yum -y install git"
+        su - -c "yum -y install python"
         su - -c "yum -y install vim"
         su - -c "yum -y install zsh"
       elif [[ ! -z $CMD_APT_GET ]]; then
+        sudo apt-get -y install git
+        sudo apt-get -y install python
         sudo apt-get -y install vim
         sudo apt-get -y install zsh
       fi
@@ -54,21 +58,32 @@ done
 
 echo "[3] Done!"
 
-# Install Oh My Zsh
+# Set git globals
 
-echo -e "\n[4] Installing Oh My Zsh..."
+echo -e "\n[4] Setting git globals..."
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git config --global core.editor vim
+git config --global push.default simple
+git config --global user.name "David Moreno García"
+git config --global user.email david.mogar@gmail.com
 
 echo "[4] Done!"
 
+# Install Oh My Zsh
+
+echo -e "\n[5] Installing Oh My Zsh..."
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "[5] Done!"
+
 # Copy dotfiles
 
-echo -e "\n[5] Copying dotfiles..."
+echo -e "\n[6] Copying dotfiles..."
 
 DOTFILES="${PLAYGROUND}"/dotfiles/
 cp -R "${DOTFILES}".tmux.conf ~     # tmux
 cp -R "${DOTFILES}".vim* ~          # vim
 cp -R "${DOTFILES}".zsh* ~          # zsh
 
-echo "[5] Done!"
+echo "[6] Done!"
