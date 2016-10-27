@@ -69,5 +69,6 @@ echo -e "\n[5] Copying dotfiles..."
 DOTFILES="${PLAYGROUND}"/dotfiles/
 cp -R "${DOTFILES}".tmux.conf ~     # tmux
 cp -R "${DOTFILES}".vim* ~          # vim
+cp -R "${DOTFILES}".zsh* ~          # zsh
 
 echo "[5] Done!"
