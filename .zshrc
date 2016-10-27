@@ -38,3 +38,5 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
+
+eval `dircolors ~/.dir_colors/dircolors`
