@@ -25,12 +25,12 @@ echo "[1] Done!"
 
 echo -e "\n[2] Preparing terminal..."
 
-if [ $(ps -p$PPID | grep gnome-terminal | wc -l) -gt  0 ]; then
+if [ $(ps -A | egrep -i gnome-terminal | wc -l) -gt  0 ]; then
   echo "Gnome terminal found. Fetching terminal colors..."
-  git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~
-  cd ~/gnome-terminal-colors-solarized
-  ./install.sh
-  cd ~ && rm -rf ~/gnome-terminal-colors-solarized
+  git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git "${PLAYGROUND}"/gtcs
+  cd "${PLAYGROUND}"/gtcs
+  ./install.sh --scheme dark --install-dircolors
+  cd ~ && rm -rf "${PLAYGROUND}"/gtcs
 fi
 
 echo "[2] Done!"
