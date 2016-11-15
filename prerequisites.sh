@@ -2,7 +2,7 @@
 
 PLAYGROUND=~/playground
 
-packages="git i3 i3blocks irssi python python-dbus remmina rxvt-unicode tmux vim zsh"
+packages="arc-theme git i3 i3blocks irssi lxappearance python remmina rxvt-unicode tmux vim zsh"
 
 # Prepare playground
 
@@ -40,10 +40,14 @@ echo "[2] Done!"
 echo -e "\n[3] Installing packages (Running as su)..."
 
 sudo sh -c "echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list"
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
 sudo apt-get update
 sudo apt-get --allow-unauthenticated install sur5r-keyring
 sudo apt-get update
 sudo apt-get -y install $packages
+
+wget https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
+sudo dpkg -i playerctl-0.5.0_amd64.deb
 
 echo "[3] Done!"
 
@@ -74,6 +78,7 @@ mkdir ~/.config
 
 DOTFILES="${PLAYGROUND}"/dotfiles/
 cp -R "${DOTFILES}".fehbg ~/.febg               # fehbg
+cp -R "${DOTFILES}".fonts ~/.fonts              # fonts
 cp -R "${DOTFILES}".i3 ~/.config/i3             # i3
 cp -R "${DOTFILES}".i3blocks ~/.config/i3blocks # i3blocks
 cp -R "${DOTFILES}".tmux.conf ~                 # tmux

@@ -71,7 +71,7 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#00FF00
+color=#81b710
 interval=10
 #separator=false
 
@@ -106,26 +106,21 @@ label=BAT
 #instance=1
 interval=30
 
-[spotify]
-label=
-command=~/.config/i3blocks/scripts/spotify.py
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+[mediaplayer]
 color=#81b71a
+instance=spotify
 interval=5
+signal=10
 
 # Date Time
 #
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
-
-# Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
 
 # OpenVPN support
 #
