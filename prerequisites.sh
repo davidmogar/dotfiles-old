@@ -73,14 +73,14 @@ echo -e "\n[6] Copying dotfiles..."
 mkdir ~/.config
 
 DOTFILES="${PLAYGROUND}"/dotfiles/
-cp -R "${DOTFILES}".fehbg ~/.febg       # fehbg
-cp -R "${DOTFILES}".i3 ~/.config        # i3
-cp -R "${DOTFILES}".i3blocks ~/.config  # i3blocks
-cp -R "${DOTFILES}".tmux.conf ~         # tmux
-cp -R "${DOTFILES}".vim* ~              # vim
-cp -R "${DOTFILES}".xproperties ~       # xproperties (xrandr)
-cp -R "${DOTFILES}".zsh* ~              # zsh
-cp -R "${DOTFILES}".Xdefaults ~         # Xdefaults (urxvt)
+cp -R "${DOTFILES}".fehbg ~/.febg               # fehbg
+cp -R "${DOTFILES}".i3 ~/.config/i3             # i3
+cp -R "${DOTFILES}".i3blocks ~/.config/i3blocks # i3blocks
+cp -R "${DOTFILES}".tmux.conf ~                 # tmux
+cp -R "${DOTFILES}".vim* ~                      # vim
+cp -R "${DOTFILES}".xproperties ~               # xproperties (xrandr)
+cp -R "${DOTFILES}".zsh* ~                      # zsh
+cp -R "${DOTFILES}".Xdefaults ~                 # Xdefaults (urxvt)
 
 echo "[6] Remember to update ~/.fehbg with the path to your wallpaper"
 echo "[6] You will also have to update ~/.xproperties and ~/.config/.i3/config with valid values for your monitors"
