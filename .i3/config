@@ -24,10 +24,12 @@ set $workspace9 9
 set $workspace10 "0: remmina "
 
 set $lock-color           2f343f
+
 set $bg-color             #2f343f
+set $hightlight-color     #32d174
 set $inactive-bg-color    #2f343f
-set $text-color           #f3f4f5
 set $inactive-text-color  #676E7D
+set $text-color           #f3f4f5
 set $urgent-bg-color      #E53935
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -209,10 +211,10 @@ bindsym $mod+r mode "resize"
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $bg-color           $bg-color          $text-color          $hightlight-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $hightlight-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $hightlight-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $hightlight-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
