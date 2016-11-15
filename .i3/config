@@ -63,11 +63,6 @@ bindsym $win+l exec i3lock -c $lock-color -n
 bindsym $win+e exec setxkbmap es
 bindsym $win+u exec setxkbmap us
 
-# volume
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -padding 10 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
@@ -167,6 +162,17 @@ assign [class="Remmina"] $workspace10
 # shortcuts
 bindsym $mod+Shift+bracketleft move workspace to output left
 bindsym $mod+Shift+bracketright move workspace to output right
+bindsym XF86Calculator exec gnome-calculator
+
+# media
+bindsym $win+n exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym $win+space exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym $win+p exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+# volume
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
