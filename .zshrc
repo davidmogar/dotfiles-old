@@ -1,5 +1,5 @@
 # Path to oh-my-zsh installation
-export ZSH=/home/david/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load
 ZSH_THEME="nebirhos"
