@@ -16,7 +16,7 @@ set $workspace1 "1: browser "
 set $workspace2 "2: terminal "
 set $workspace3 "3: thunderbird "
 set $workspace4 "4: hangouts "
-set $workspace5 "5: spotifyi "
+set $workspace5 "5: spotify "
 set $workspace6 6
 set $workspace7 7
 set $workspace8 8
