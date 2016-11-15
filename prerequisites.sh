@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-CMD_APT_GET=$(which apt-get)
-CMD_YUM=$(which yum)
 PLAYGROUND=~/playground
+
+packages="git i3 i3blocks irssi python python-dbus remmina rxvt-unicode tmux vim zsh"
 
 # Prepare playground
 
@@ -39,22 +39,11 @@ echo "[2] Done!"
 
 echo -e "\n[3] Installing packages (Running as su)..."
 
-while getopts ":i" opt; do
-  case $opt in
-    i)
-      if [[ ! -z $CMD_YUM ]]; then
-        su - -c "yum -y install git"
-        su - -c "yum -y install python"
-        su - -c "yum -y install vim"
-        su - -c "yum -y install zsh"
-      elif [[ ! -z $CMD_APT_GET ]]; then
-        sudo apt-get -y install git
-        sudo apt-get -y install python
-        sudo apt-get -y install vim
-        sudo apt-get -y install zsh
-      fi
-  esac
-done
+sudo sh -c "echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list"
+sudo apt-get update
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+sudo apt-get update
+sudo apt-get -y install $packages
 
 echo "[3] Done!"
 
@@ -81,9 +70,14 @@ echo "[5] Done!"
 
 echo -e "\n[6] Copying dotfiles..."
 
+mkdir ~/.config
+
 DOTFILES="${PLAYGROUND}"/dotfiles/
-cp -R "${DOTFILES}".tmux.conf ~     # tmux
-cp -R "${DOTFILES}".vim* ~          # vim
-cp -R "${DOTFILES}".zsh* ~          # zsh
+cp -R "${DOTFILES}".i3 ~/.config        # i3
+cp -R "${DOTFILES}".i3blocks ~/.config  # i3blocks
+cp -R "${DOTFILES}".tmux.conf ~         # tmux
+cp -R "${DOTFILES}".vim* ~              # vim
+cp -R "${DOTFILES}".zsh* ~              # zsh
+cp -R "${DOTFILES}".Xdefaults ~         # Xdefaults (urxvt)
 
 echo "[6] Done!"
