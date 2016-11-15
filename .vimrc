@@ -24,7 +24,6 @@ set incsearch           " search as characters are entered
 
 " UI
 set cursorline          " highlight current line
-set number              " show line numbers
 set ruler               " display line and column numbers
 set showmatch           " highlight matching [{()}]
 
