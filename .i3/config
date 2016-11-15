@@ -65,8 +65,8 @@ bindsym $win+u exec setxkbmap us
 
 # volume
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%-
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
