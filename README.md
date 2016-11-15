@@ -14,5 +14,6 @@ $ ./prerequisites.sh
 > ```bash
 cp -R "${DOTFILES}".xproperties ~       # xproperties (xrandr)
 ```
+> You will also need to set up correct values in `.~/config/i3/config` for your monitors setup.
 
 If not the case, just copy the files to the right paths ;)
