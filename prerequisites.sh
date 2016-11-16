@@ -2,7 +2,7 @@
 
 PLAYGROUND=~/playground
 
-packages="arc-theme git i3 i3blocks irssi lxappearance python remmina rxvt-unicode tmux vim zsh"
+packages="arc-theme git i3 i3blocks irssi lxappearance python remmina rxvt-unicode tig tmux vim zsh"
 
 # Prepare playground
 
