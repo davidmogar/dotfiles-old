@@ -72,7 +72,7 @@ echo "[5] Done!"
 
 # Copy dotfiles
 
-echo -e "\n[6] Copying dotfiles..."
+echo -e "\n[6] Copying dotfiles and applying last changes..."
 
 mkdir ~/.config
 
@@ -86,6 +86,10 @@ cp -R "${DOTFILES}".vim* ~                      # vim
 cp -R "${DOTFILES}".xproperties ~               # xproperties (xrandr)
 cp -R "${DOTFILES}".zsh* ~                      # zsh
 cp -R "${DOTFILES}".Xdefaults ~                 # Xdefaults (urxvt)
+
+# Fix Nautilus stupid behavior
+
+gsettings set org.gnome.desktop.background show-desktop-icons false
 
 echo "[6] Remember to update ~/.fehbg with the path to your wallpaper"
 echo "[6] You will also have to update ~/.xproperties and ~/.config/.i3/config with valid values for your monitors"
