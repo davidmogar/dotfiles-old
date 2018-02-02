@@ -20,3 +20,5 @@ function setup_repositories {
 
 setup_repositories
 install_packages
+
+chsh -s $(which fish)
